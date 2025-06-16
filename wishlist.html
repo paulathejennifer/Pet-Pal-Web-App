@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="pet-gallery">
+      <div class="pet-card" data-category="dogs"
+            data-desc="Fufi the German Shepherd"
+            data-ingredients="A one year old vibrant and playful Labrador mix " data-price="200.00">
+            <div class="wishlist">&#9825;</div>
+            <img src="images/fufi.jpg" alt="A one year old German Shepherd">
+            <h3>Fufi the German Shepherd</h3>
+            <p>$200.00</p>
+            <button class="add-to-cart">Adopt</button>
+            <button class="quick-view-btn">Quick View</button>
+        </div>
+
+        <div class="pet-card" data-category="horses"
+            data-desc="Zama the Arabian Horse"
+            data-ingredients="A two-year old, balanced build, a calm and trainable temperament, good health and strong hurdle jumping skills." data-price="570.00">
+            <div class="wishlist">&#9825;</div>
+            <img src="images/horse (3).jpg" alt="A two-year old Arabian horse">
+            <h3>Zama the Arabian Horse</h3>
+            <p>$570.00</p>
+            <button class="add-to-cart">Adopt</button>
+            <button class="quick-view-btn">Quick View</button>
+        </div>
+
+        <div class="pet-card" data-category="cats"
+            data-desc="Whiskers the Cat"
+            data-ingredients="This medium-haired, tabby cat enjoys cuddling, playing with toys and exploring new places" data-price="30.00">
+            <div class="wishlist">&#9825;</div>
+            <img src="images/catty (3).jpg" alt="A two-year old Arabian horse">
+            <h3>Whiskers the Cat</h3>
+            <p>$30.00</p>
+            <button class="add-to-cart">Adopt</button>
+            <button class="quick-view-btn">Quick View</button>
+        </div>
+
+    </section>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img id="modal-img" alt="">
+            <h3 id="modal-title"></h3>
+            <p id="modal-price"></p>
+            <p id="modal-desc"></p>
+            <p><strong>Traits</strong></p>
+            <span id="modal-ingredients">
+            </span>
+
+        </div>
+
+    </div>
+    <script>
+
+                document.querySelectorAll('.wishlist').forEach(heart => {
+            heart.addEventListener('click', () => {
+                heart.textContent = heart.textContent === '♥' ? '♡' : '♥';
+                
+
+                const imageUrl = heart.dataset.imageUrl;
+                const imageDescription = heart.dataset.imageDescription;
+
+                let galleryItems = JSON.parse(localStorage.getItem('galleryItems'))
+                galleryItems.push({imageUrl, imageDescription});
+                localStorage.setItem('galleryItems', JSON.stringify(galleryItems))
+                window.location.href = "gallery.html"
+            });
+        });
+    
+           const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalPrice = document.getElementById('modal-price');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalIngredients = document.getElementById('modal-ingredients');
+                document.querySelectorAll('.quick-view-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const card = btn.parentElement;
+                modalImg.src = card.querySelector('img').src;
+                modalTitle.textContent = card.querySelector('h3').textContent;
+                modalPrice.textContent = card.getAttribute('data-price');
+                modalDesc.textContent = card.getAttribute('data-desc');
+                modalIngredients.textContent = card.getAttribute('data-ingredients');
+                modal.style.display = 'block'
+            });
+        });
+
+      if (document.querySelector('.close-btn')) {
+            document.querySelector('.close-btn').addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+        }
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const card = btn.closest('.pet-card');
+                const title = card.querySelector('h3').textContent;
+                const price = parseFloat(card.getAttribute('data-price'));
+                const image = card.querySelector('img') ? card.querySelector('img').src : '';
+
+                const existing = cart.find(item => item.title === title);
+                if (existing) {
+                    existing.quantity += 1;
+                } else {
+                    cart.push({ title, price, image, quantity: 1 });
+                }
+                renderCart();
+            });
+        });
+    </script>
+    
+
+    <style>
+        body{
+    margin: 0;
+    background-color:#e79924;
+}
+.wishlist{
+    cursor: pointer;
+}
+.pet-gallery{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin: 0;
+
+}
+
+.add-to-cart button{
+    cursor: pointer;
+}
+
+.quick-view-btn{
+    cursor: pointer;
+}
+
+.close-btn{
+    font-size: 1.5rem;
+    color: #e0500d;
+    float: right;
+    cursor: pointer;
+}
+
+
+
+button{
+    padding: 0.6rem 1.2rem;
+    background-color: #e65a22;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+button:hover{
+    background-color: #4b2d00;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;left: 0;
+    width: 100%;height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    z-index: 10;
+}
+.modal-content{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-content img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.pet-card img{
+    border-radius: 20px;
+}
+    </style>
+</body>
+</html>
