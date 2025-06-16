@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+    background-color:#e79924;
+}
+.wishlist{
+    cursor: pointer;
+}
+.pet-gallery{
+    display: flex;
+    /* flex-direction: column; */
+    gap: 100px;
+    margin: 0;
+
+}
+
+.add-to-cart button{
+    cursor: pointer;
+}
+
+.quick-view-btn{
+    cursor: pointer;
+}
+
+.close-btn{
+    font-size: 1.5rem;
+    color: #e0500d;
+    float: right;
+    cursor: pointer;
+}
+
+
+
+button{
+    padding: 0.6rem 1.2rem;
+    background-color: #e65a22;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+button:hover{
+    background-color: #4b2d00;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;left: 0;
+    width: 100%;height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal-content{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-content img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.pet-card img{
+    border-radius: 20px;
+}
