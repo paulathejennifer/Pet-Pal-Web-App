@@ -7,7 +7,7 @@ body{
 }
 .pet-gallery{
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     gap: 100px;
     margin: 0;
 
