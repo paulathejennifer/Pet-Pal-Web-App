@@ -1,0 +1,42 @@
+.personal-review{
+box-shadow: 1px 0 4px;
+width:30%;
+margin-left: 3%;
+p{
+    margin-left: 30px;
+}
+
+}
+.review{
+    display: flex;
+   
+    img{
+        width:70px;
+        margin-top: 10px;
+
+    }
+}
+#quote{color:rgb(218, 42, 42);
+font-size: 30px;
+margin-top: 49px;
+margin-left: 32%;
+}
+#name{
+    margin-left: 20%;
+
+}
+
+
+.alignment{
+display: flex;
+margin-left: 20px;
+gap:-40px
+}
+#our-review{
+    color: rgb(255, 145, 0);
+    margin-left: 45%;
+}
+#what-people-say{
+    margin-left: 43%;
+    font-size: 50px;
+}
