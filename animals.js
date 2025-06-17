@@ -13,7 +13,7 @@ window.ANIMALS = [
     name: "Barker",
     img: "https://placedog.net/350/230?id=1",
     desc: "A loyal dog who loves fetch.",
-    age: "1 year",
+    age: "3 months",
     traits: "Loyal, Energetic",
     fee: "Ksh. 1400"
   },
@@ -31,7 +31,7 @@ window.ANIMALS = [
     name: "Moochi",
     img: "https://i.pinimg.com/736x/27/d3/c4/27d3c486aa5de710a7ce774e2ad75f23.jpg",
     desc: "A wild raccoon with a love for snacks.",
-    age: "6 months",
+    age: "1 year",
     traits: "Mischievous, Clever",
     fee: "Ksh. 40000"
   },
@@ -49,15 +49,15 @@ window.ANIMALS = [
     name: "Zama",
     img: "https://i.pinimg.com/736x/a3/4a/d7/a34ad7f677b5cc7a0490fa9d9591832c.jpg",
     desc: "An energetic horse that loves skipping hurdles.",
-    age: "2 years",
+    age: "4 months",
     traits: "Loyal, Energetic",
     fee: "Ksh. 5500"
   },
      {
     id: "7",
     name: "Luna",
-    img: "https://i.pinimg.com/736x/61/33/dd/6133dd8fe52c7166832bff241c3d2eb6.jpg",
-    desc: "A sleek grey with glowing eyes.",
+    img: "https://i.pinimg.com/736x/83/4b/ba/834bba4a65bc5510b7cd10bb32a174ff.jpg",
+    desc: "A sleek browny with glowing eyes.",
     age: "2 years",
     traits: "Mysterious, Affectionate",
     fee: "Ksh. 1350"
@@ -67,7 +67,7 @@ window.ANIMALS = [
     name: "Nugget",
     img: "https://i.pinimg.com/736x/02/b5/ad/02b5ad5eb980ea96970e21ea46e0a528.jpg",
     desc: "A tiny golden tabby who fits in your hands.",
-    age: "2 years",
+    age: "7 months",
     traits: "Curious, Brave, always getting into things",
     fee: "Ksh. 12000"
   }
