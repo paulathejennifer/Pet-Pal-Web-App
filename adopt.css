@@ -1,0 +1,130 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f755a0;
+}
+
+nav {
+  background: #fff;
+  color: #f755a0;
+  padding: 1em;
+  display: flex;
+  gap: 1em;
+  font-size: 1.2em;
+  align-items: center;
+  box-shadow: 0 2px 8px #0001;
+}
+nav a {
+  color: #f755a0;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 10px;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 490px;
+  margin: 2.5rem auto 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px #0002;
+  padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+}
+
+h1 {
+  text-align: center;
+  color: #f755a0;
+  margin-bottom: 2rem;
+}
+
+#adopt-pet-info {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#adopt-pet-info img {
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 0.7rem;
+  border: 2px solid #f6b5d8;
+}
+
+form {
+  background: #f9d6ee;
+  border-radius: 16px;
+  padding: 1.7rem 1.2rem;
+  box-shadow: 0 1px 6px #0001;
+  margin-bottom: 2rem;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 1.6rem;
+  padding: 0;
+}
+legend {
+  font-weight: bold;
+  color: #f755a0;
+  margin-bottom: 0.6rem;
+  font-size: 1.08em;
+}
+label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: #a03577;
+  font-size: 1.05em;
+}
+input[type="text"], input[type="email"] {
+  width: 98%;
+  padding: 0.7em;
+  border-radius: 8px;
+  border: 1.5px solid #f6b5d8;
+  margin-top: 0.35em;
+  margin-bottom: 0.1em;
+  font-size: 1em;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+input[type="text"]:focus, input[type="email"]:focus {
+  border-color: #f755a0;
+  outline: none;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 0.9em 0;
+  background: #f755a0;
+  color: #fff;
+  font-size: 1.15em;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1.2em;
+  transition: background 0.18s;
+  box-shadow: 0 2px 8px #f6b5d8a0;
+}
+button[type="submit"]:hover {
+  background: #d3389e;
+}
+
+#adopt-success {
+  background: #e3ffeb;
+  border: 1px solid #b3e6c3;
+  border-radius: 16px;
+  padding: 2em 1em;
+  margin-top: 2em;
+  text-align: center;
+  box-shadow: 0 1px 8px #0001;
+}
+
+#adopt-success h2 {
+  color: #37c46d;
+  margin-bottom: 0.3em;
+}
+
+.hidden {
+  display: none !important;
+}

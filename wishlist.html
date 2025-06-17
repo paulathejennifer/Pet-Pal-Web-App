@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,3 +200,151 @@ button:hover{
     </style>
 </body>
 </html>
+=======
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Pet Pal - Adopt & Favorites</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <header>
+    <nav>
+      <h1>My Pet Pal</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="pet-gallery">
+    <div class="pet-card" data-id="1" data-name="Buddy" data-desc="Golden Retriever, 2 years old" data-traits="Friendly,Playful,Loyal" data-fee="$50" data-img="images/dog1.jpg">
+      <div class="pet-img">
+        <img src="images/dog1.jpg" alt="Buddy the dog">
+        <button class="favorite-btn" title="Add to Favorites">♡</button>
+      </div>
+      <h3>Buddy</h3>
+      <p>Golden Retriever, 2 years old</p>
+      <div class="card-actions">
+        <button class="quick-view-btn">Quick View</button>
+        <button class="adopt-btn">Adopt</button>
+      </div>
+    </div>
+    <!-- Add more pet cards here -->
+  </main>
+
+  <!-- Quick View Modal -->
+  <div class="modal" id="quickViewModal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <img src="" id="modal-img" alt="Pet image">
+      <h2 id="modal-name"></h2>
+      <p id="modal-desc"></p>
+      <ul id="modal-traits"></ul>
+      <p id="modal-fee"></p>
+      <button id="adoptNowBtn">Adopt Now</button>
+    </div>
+  </div>
+
+  <!-- Adopt Form Modal -->
+  <div class="modal" id="adoptFormModal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Adopt <span id="adoptPetName"></span></h2>
+      <form id="adoptForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <textarea placeholder="Why do you want to adopt?" required></textarea>
+        <button type="submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Modal Selectors
+    const quickViewModal = document.getElementById("quickViewModal");
+    const adoptFormModal = document.getElementById("adoptFormModal");
+    const modalImg = document.getElementById("modal-img");
+    const modalName = document.getElementById("modal-name");
+    const modalDesc = document.getElementById("modal-desc");
+    const modalTraits = document.getElementById("modal-traits");
+    const modalFee = document.getElementById("modal-fee");
+    const adoptPetName = document.getElementById("adoptPetName");
+
+    // Quick View Button Logic
+    document.querySelectorAll(".quick-view-btn").forEach(button => {
+      button.addEventListener("click", (e) => {
+        const card = e.target.closest(".pet-card");
+        modalImg.src = card.dataset.img;
+        modalName.textContent = card.dataset.name;
+        modalDesc.textContent = card.dataset.desc;
+        modalFee.textContent = `Adoption Fee: ${card.dataset.fee}`;
+
+        modalTraits.innerHTML = "";
+        card.dataset.traits.split(",").forEach(trait => {
+          const li = document.createElement("li");
+          li.textContent = trait;
+          modalTraits.appendChild(li);
+        });
+
+        quickViewModal.style.display = "block";
+      });
+    });
+
+    // Adopt Now in Quick View
+    document.getElementById("adoptNowBtn").addEventListener("click", () => {
+      quickViewModal.style.display = "none";
+      adoptPetName.textContent = modalName.textContent;
+      adoptFormModal.style.display = "block";
+    });
+
+    // Open Adopt Form Directly
+    document.querySelectorAll(".adopt-btn").forEach(button => {
+      button.addEventListener("click", (e) => {
+        const card = e.target.closest(".pet-card");
+        adoptPetName.textContent = card.dataset.name;
+        adoptFormModal.style.display = "block";
+      });
+    });
+
+    // Close Buttons
+    document.querySelectorAll(".close-btn").forEach(btn => {
+      btn.onclick = () => {
+        quickViewModal.style.display = "none";
+        adoptFormModal.style.display = "none";
+      };
+    });
+
+    // Favorite Button Logic
+    document.querySelectorAll(".favorite-btn").forEach(button => {
+      button.addEventListener("click", (e) => {
+        const card = e.target.closest(".pet-card");
+        const pet = {
+          id: card.dataset.id,
+          name: card.dataset.name,
+          desc: card.dataset.desc,
+          img: card.dataset.img
+        };
+
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        if (!favorites.find(p => p.id === pet.id)) {
+          favorites.push(pet);
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+          alert(`${pet.name} added to favorites!`);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+ 
+>>>>>>> be1bd36b71cc9f4659943e004ecdb0bf5ccb32ec
