@@ -1,29 +1,69 @@
-const urlParams = new URLSearchParams(window.location.search);
-const petId = urlParams.get('pet');
-const animals = window.ANIMALS;
-const pet = animals.find(a => a.id === petId);
+ async function getAccessToken() {
+      try {
+        const res = await fetch("https://api.petfinder.com/v2/oauth2/token", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: new URLSearchParams({
+            grant_type: "client_credentials",
+            client_id: "Cti68kwTXwHjOq4NdJgQcaybEsIXbZtcrjeP6xjkC1DyrWlLEf",
+            client_secret: "hXi3EhpNwsgrUbxdkfK17EBtID9xZGQIFFQS4Ib7"
+          })
+        });
+        const data = await res.json();
+        return data.access_token;
+      } catch (err) {
+        console.error("Access token error:", err);
+        alert("Failed to get access token. Check console.");
+      }
+    }
 
-if (pet) {
-  document.getElementById('adopt-pet-info').innerHTML = `
-    <h2>Adopting: ${pet.name}</h2>
-    <img src="${pet.img}" alt="${pet.name}" style="max-width:200px;">
-    <p>${pet.desc}</p>
-    <p>Age: ${pet.age}</p>
-    <p>Traits: ${pet.traits}</p>
-  `;
-  document.getElementById('adopted-pet-name').textContent = pet.name;
-}
 
-document.getElementById('adopt-form').onsubmit = function(e) {
-  e.preventDefault();
-
-  document.getElementById('adopt-form').style.display = 'none';
-  document.getElementById('adopt-success').classList.remove('hidden');
-  document.getElementById('yay-sound').play();
-
-  let adopted = JSON.parse(localStorage.getItem('adopted') || '[]');
-  if (!adopted.includes(petId)) {
-    adopted.push(petId);
-    localStorage.setItem('adopted', JSON.stringify(adopted));
-  }
-};
+async function searchPets() {
+      const species = document.getElementById("speciesSelect").value;
+      if (!species) {
+        alert("Please select a species.");
+        return;
+      }
+      const token = await getAccessToken();
+      if (!token) return;
+      try {
+        const res = await fetch(`https://api.petfinder.com/v2/animals?type=${species}&limit=20`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        const data = await res.json();
+        displayPets(data.animals);
+      } catch (err) {
+        console.error("Pet fetch error:", err);
+        alert("Error fetching pets. Check console.");
+      }
+    }
+    function displayPets(pets) {
+      const container = document.getElementById("pet-card");
+      container.innerHTML = "";
+      if (!pets || pets.length === 0) {
+        container.innerHTML = "<p>No pets found.</p>";
+        return;
+      }
+      pets.forEach(pet => {
+        const image = pet.photos[0]?.medium || 'https://via.placeholder.com/300x300';
+        // const desc = pet.description || 'No description available';
+        const card = `
+          <div class="card">
+            <div class="face face1">
+              <a href = "form.html"><img src="${image}" alt="${pet.name}"></a>
+              <div class="content">
+                <h2>${pet.name}</h2>
+                <p><strong>Breed:</strong> ${pet.breeds.primary}</p>
+                <p><strong>Age:</strong> ${pet.age}</p>
+              </div>
+            </div>
+           
+        `;
+        container.innerHTML += card;
+        
+      });
+    }

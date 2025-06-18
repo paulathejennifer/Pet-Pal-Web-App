@@ -2,41 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Adopt a Pet - PetPal</title>
-  <link rel="stylesheet" href="adopt.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PetPal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link rel="stylesheet" href="adopt.css">
+  </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="favorites.html">Favorites</a>
+  <div>
+    <h2 class="heading_main">Pet<span id="pal_heading">pal</span></h2>
+  </div>
+  <nav id="nav_bar">
+   
+    <a href="#">Adopt</a>
+    
   </nav>
-  <main>
-    <h1>Adopt a Pet</h1>
-    <div id="adopt-pet-info"></div>
-    <form id="adopt-form">
-      <fieldset>
-        <legend>Applicant Information</legend>
-        <label>Name: <input type="text" name="name" required></label><br>
-        <label>Email: <input type="email" name="email" required></label>
-      </fieldset>
-      <fieldset>
-        <legend>Lifestyle</legend>
-        <label>Do you have other pets? <input type="text" name="otherPets"></label><br>
-        <label>Describe your home: <input type="text" name="homeDesc"></label>
-      </fieldset>
-      <fieldset>
-        <legend>Experience</legend>
-        <label>Have you owned pets before? <input type="text" name="experience"></label>
-      </fieldset>
-      <button type="submit">Submit Adoption</button>
-    </form>
-    <audio id="yay-sound" src="yaay.mp3" preload="auto"></audio>
-    <div id="adopt-success" class="hidden">
-      <h2>Congratulations!</h2>
-      <p>You have adopted <span id="adopted-pet-name"></span>!</p>
+  <p>Click animal to adopt</p>
+  <div class="search-bar">
+    <select id="speciesSelect">
+      <option value="">-- Select Species --</option>
+      <option value="dog">Dog</option>
+      <option value="cat">Cat</option>
+      <option value="rabbit">Rabbit</option>
+      <option value="small-furry">Small & Furry</option>
+      <option value="horse">Horse</option>
+      <option value="bird">Bird</option>
+      <option value="scales-fins-other">Scales, Fins & Other</option>
+      <option value="barnyard">Barnyard</option>
+    </select>
+    <button onclick="searchPets()">Search</button>
+  </div>
+  <div class="container" id="pet-card"></div>
+  <h2 id="trending">Trending Pets</h2>
+
+    <div id="animals">
+
+
+        <div class="image_one">
+            <img src="images/dog1.png">
+
+
+        </div>
+        <div class="image_two">
+            <img src="images/cat-two.jpg">
+
+
+        </div>
+        <div class="image_three">
+            <img src="images/cat3.jpg">
+
+
+        </div>
+        <!-- <div class="image_four">
+            <img src="im/cat4.jpg">
+
+
+        </div> -->
     </div>
-  </main>
-  <script src="animals.js"></script>
-  <script src="adopt.js"></script>
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Pets</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-envelope"></i> petpal@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +254768719803</p>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <p><i class="fa-brands fa-facebook-f"></i> Facebook</p>
+        <p><i class="fa-brands fa-twitter"></i> Twitter</p>
+        <p><i class="fa-brands fa-youtube"></i> YouTube</p>
+        <p><i class="fa-brands fa-linkedin"></i> LinkedIn</p>
+      </div>
+    </div>
+    <p id="terms">All Rights Reserved to PetPal Company</p>
+  </footer>
+
+
+
+
+ <script src="adopt.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

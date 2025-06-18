@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>PetPal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        @font-face {
+            font-family: agba;
+            src: url(./fonts/Poppins/Poppins-Light.ttf);
+        }
+        @font-face {
+            font-family: Dom;
+            src: url(./fonts/magneta-medium.ttf);
+        }
+        @font-face {
+            font-family: jhm;
+            src: url(./fonts/Kurale/Kurale-Regular.ttf);
+        }
+        body {
+            background-color: #FFF3F0;
+            font-family: agba, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .heading_main {
+            font-size: 300%;
+            transform: translate(20px, 50px);
+        }
+        #pal_heading {
+            color: orange;
+        }
+        #nav_bar {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        #nav_bar a {
+            text-decoration: none;
+            text-align: center;
+            color: black;
+            font-size: 120%;
+            font-family: agba;
+        }
+        .search-bar {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .search-bar select,
+        .search-bar button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px auto;
+            max-width: 1300px;
+        }
+        .card {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            perspective: 1000px;
+            margin: 10px;
+        }
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transition: transform 0.6s;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .face.face1 {
+            background: white;
+            transform: rotateY(0deg);
+        }
+        .face.face1 img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+        }
+        .content {
+            padding: 10px;
+        }
+        .content h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px;
+            background-color: black;
+            color: white;
+            /* margin-top: 2cm; */
+        }
+        #terms {
+            text-align: center;
+            color: white;
+            background-color: black;
+            padding-bottom: 20px;
+        }
+        /* Fun Name Generator Styles */
+        #funNameDisplay {
+            text-align: center;
+            font-size: 50px;
+            margin: 20px 0;
+            color:orange; /* Change color for visibility */
+            font-weight: bold; /* Make it bold */
+        }
+        /* Button Styles */
+        button {
+            padding: 7px 15px; /* Add padding for a better look */
+            font-size: 13px; /* Font size */
+            color: white; /* Text color */
+            background-color: orange; /* Background color */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+        }
+        button:hover {
+            background-color: rgb(14, 13, 13); /* Change background color on hover */
+            /* transform: scale(1.05); Slightly enlarge the button on hover */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 class="heading_main">Pet<span id="pal_heading">pal</span></h2>
+    </div>
+    <nav id="nav_bar">
+        <a href="index.html">Home</a>
+        <a href="#">Pets</a>
+        <a href="#">Adopt</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Stories</a>
+    </nav>
+    <div class="search-bar">
+        <select id="speciesSelect">
+            <option value="">-- Select Species --</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="rabbit">Rabbit</option>
+            <option value="small-furry">Small & Furry</option>
+            <option value="horse">Horse</option>
+            <option value="bird">Bird</option>
+            <option value="scales-fins-other">Scales, Fins & Other</option>
+            <option value="barnyard">Barnyard</option>
+        </select>
+        <button onclick="searchPets()">Search</button>
+    </div>
+    <div id="funNameDisplay"></div> <!-- Display the generated fun name here -->
+    <div class="container" id="pet-card">
+        <!-- Pet cards will be appended here -->
+    </div>
+    
+    <!-- <button id="generateNameBtn" onclick="generateFunName()">Generate Fun Name</button> -->
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Pets</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-envelope"></i> petpal@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> +254768719803</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <p><i class="fa-brands fa-facebook-f"></i> Facebook</p>
+                <p><i class="fa-brands fa-twitter"></i> Twitter</p>
+                <p><i class="fa-brands fa-youtube"></i> YouTube</p>
+                <p><i class="fa-brands fa-linkedin"></i> LinkedIn</p>
+            </div>
+        </div>
+        <p id="terms">All Rights Reserved to PetPal Company</p>
+    </footer>
+    <script>
+        async function getAccessToken() {
+            try {
+                const res = await fetch("https://api.petfinder.com/v2/oauth2/token", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: new URLSearchParams({
+                        grant_type: "client_credentials",
+                        client_id: "Cti68kwTXwHjOq4NdJgQcaybEsIXbZtcrjeP6xjkC1DyrWlLEf", // replace
+                        client_secret: "hXi3EhpNwsgrUbxdkfK17EBtID9xZGQIFFQS4Ib7" // replace
+                    })
+                });
+                const data = await res.json();
+                return data.access_token;
+            } catch (err) {
+                console.error("Access token error:", err);
+                alert("Failed to get access token. Check console.");
+            }
+        }
+
+        async function searchPets() {
+            const species = document.getElementById("speciesSelect").value;
+            if (!species) {
+                alert("Please select a species.");
+                return;
+            }
+            const token = await getAccessToken();
+            if (!token) return;
+            try {
+                const res = await fetch(`https://api.petfinder.com/v2/animals?type=${species}&limit=20`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                const data = await res.json();
+                displayPets(data.animals);
+            } catch (err) {
+                console.error("Pet fetch error:", err);
+                alert("Error fetching pets. Check console.");
+            }
+        }
+
+        function displayPets(pets) {
+            const container = document.getElementById("pet-card");
+            container.innerHTML = "";
+            if (!pets || pets.length === 0) {
+                container.innerHTML = "<p>No pets found.</p>";
+                return;
+            }
+            pets.forEach(pet => {
+                const image = pet.photos[0]?.medium || 'https://via.placeholder.com/300';
+                const card = `
+                    <div class="card">
+                        <div class="face face1">
+                            <img src="${image}" alt="${pet.name}">
+                            <div class="content">
+                                <h2>${pet.name}</h2>
+                                <p><strong>Breed:</strong> ${pet.breeds.primary}</p>
+                                <p><strong>Age:</strong> ${pet.age}</p>
+                                <button onclick="generateFunName()">Generate Fun Name</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        const funNames = [
+            "Fluffy McSnuggles",
+            "Bonnette",
+            "Sir Waggington",
+            "Ruby",
+            "Purrlock Holmes",
+            "Dotty",
+            "Bark Twain",
+            "Makuto",
+            "Furrball McFluff",
+            "Davida",
+            "Whisker Biscuit",
+            "Angie",
+            "Captain Sniffles",
+            "Pawtastic",
+            "Mwiks",
+            "Cuddle Monster",
+            "Fuzzy Wuzzy",
+            "Bubbles",
+            "Shadow",
+            "Fluffy",
+            "Nibbles", 
+            "Taco", 
+            "Momo", 
+            "Spike"
+        ];
+
+        function generateFunName() {
+            const randomIndex = Math.floor(Math.random() * funNames.length);
+            const funName = funNames[randomIndex];
+            const funNameDisplay = document.getElementById("funNameDisplay");
+            funNameDisplay.innerText = `Fun Name: ${funName}`;
+            funNameDisplay.style.display = "block"; // Show the fun name display
+            setTimeout(() => {
+                funNameDisplay.style.display = "none"; // Hide after a few seconds
+            }, 5000); // Change the duration as needed
+        }
+    </script>
+</body>
+</html>

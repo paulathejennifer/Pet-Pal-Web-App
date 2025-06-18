@@ -1,56 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>PetPal - Animal Viewer</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetPal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+   
 </head>
+
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="favorites.html">Favorites <span id="fav-count"></span></a>
-  </nav>
-  <main>
-    <div class="pets-grid" id="animal-list"></div>
-  </main>
-
-
-  <div id="quickview-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="close-modal">&times;</span>
-      <img id="modal-img" src="" alt="Animal" />
-      <h2 id="modal-name"></h2>
-      <p id="modal-desc"></p>
+    <div>
+        <h2 class="heading_main">Pet<span id="pal_heading">pal</span></h2>
     </div>
-  </div>
+    <nav id="nav_bar">
+        <a href="last.html">Home</a>
 
-  <section class="faq-section">
-  <h2>FAQs</h2>
-  <ul class="faq-list">
-    <li class="faq-item">
-      <span class="faq-question">How do I add a pet to favorites?</span>
-      <span class="faq-answer">Click the heart icon on the pet card to add it to your favorites list.</span>
-    </li>
-    <li class="faq-item">
-      <span class="faq-question">How do I adopt a pet?</span>
-      <span class="faq-answer">Click the "Adopt" button on the pet card and fill out the adoption form on the next page.</span>
-    </li>
-    <li class="faq-item">
-      <span class="faq-question">Can I remove a pet from favorites?</span>
-      <span class="faq-answer">Yes, simply click the red heart icon again to remove a pet from your favorites page.</span>
-    </li>
-    <li class="faq-item">
-      <span class="faq-question">What is Quick View?</span>
-      <span class="faq-answer">Quick View shows more information about a pet without leaving the page.</span>
-    </li>
-    <li class="faq-item">
-      <span class="faq-question">Where can I see my favorite pets?</span>
-      <span class="faq-answer">Click "Favorites" in the navigation bar to see all your favorited pets.</span>
-    </li>
-  </ul>
-</section>
+        <a href="adopt.html">Adopt</a>
+        <a href="fun-name.html">Generate fun name</a>
+        <a href="#reviews">Stories</a>
+    </nav>
+    <a href="#footer-content"><button class="btn contacts">
+        <span>Contact Us</span>
+    </button></a>
 
-  <script src="animals.js"></script>
-  <script src="main.js"></script>
+    <!-- <img src="images/orange_paw_prints-removebg-preview.png" id="orange">
+    <img src="images/black_paw_prints-removebg-preview.png" id="black">
+    <img src="images/orange_paw_prints-removebg-preview.png" id="orange-two"> -->
+
+
+
+    <div id="heading">
+        <h1>
+            Find your adorable Petpal today!
+        </h1>
+        <p>Discover your perfect companion in our collection of <br>loving pets that can be adopted</p>
+    </div>
+    <div class="search-bar">
+        <select id="speciesSelect">
+            <option value="">-- Select Species --</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="rabbit">Rabbit</option>
+            <option value="small-furry">Small & Furry</option>
+            <option value="horse">Horse</option>
+            <option value="bird">Bird</option>
+            <option value="scales-fins-other">Scales, Fins & Other</option>
+            <option value="barnyard">Barnyard</option>
+        </select>
+        <button onclick="searchPets()">Search</button>
+    </div>
+    <div class="container" id="pet-card"></div>
+
+
+
+
+    <h2 id="trending">Trending Pets</h2>
+
+    <div id="animals">
+
+
+        <div class="image_one">
+            <img src="im/cat4.jpg">
+
+
+        </div>
+        <div class="image_two">
+            <img src="im/cat2.jpg">
+
+
+        </div>
+        <div class="image_three">
+            <img src="im/c96fd62816a27e53c9ce89c8f08d0233.jpg">
+
+
+        </div>
+        <!-- <div class="image_four">
+            <img src="im/cat4.jpg">
+
+
+        </div> -->
+    </div>
+
+
+     <h3 id="reviews">OUR STORIES</h3>
+    <h1 id="what-people-say">What People Say</h1>
+    <div class="review">
+        <div class="personal-review">
+            <div class="alignment">
+
+                <h4 id="name">Emily</h4>
+                <img src="images/emily.png">
+                <i class="fa-solid fa-quote-right" id="quote"></i>
+            </div>
+            <p>Excellent service, friendly staffs, delivery always on time <br>and very
+                important.....pocket friendly. I always wait for <br>their offers,
+                this way we can afford to look after our pets.
+                <br>Thank u and bravo!!!
+            </p>
+        </div>
+
+        <div class="personal-review">
+            <div class="alignment">
+                <h4 id="name">Hani</h4>
+                <img src="images/hani.png">
+                <i class="fa-solid fa-quote-right" id="quote"></i>
+            </div>
+            <p>Their commitment to excellent delivery, and value for money is <br>
+                unmatched. Everytime I order, I'm amazed by their efficiency in ensuring<br>
+                my pets arrive on time and in perfect condition.</p>
+
+        </div>
+        <div class="personal-review">
+            <div class="alignment">
+                <h4 id="name">John</h4>
+                <img src="images/jhon.png">
+                <i class="fa-solid fa-quote-right" id="quote"></i>
+            </div>
+            <p> I'll be gratefull to Pet-pal for bringing my best friend into my life.<br>
+                Adopting a pet was a big decision for me, but Pet-pal made it feel like
+                <br> the most natural choice in the world.
+            </p>
+
+
+        </div>
+    </div>
+
+
+
+
+
+    <footer>
+        <div id="footer-content">
+            <div>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Pets</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-envelope"></i> petpal@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> +254768719803</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <p><i class="fa-brands fa-facebook-f"></i> Facebook</p>
+                <p><i class="fa-brands fa-twitter"></i> Twitter</p>
+                <p><i class="fa-brands fa-youtube"></i> YouTube</p>
+                <p><i class="fa-brands fa-linkedin"></i> LinkedIn</p>
+            </div>
+        </div>
+        <p id="terms">All Rights Reserved to PetPal Company</p>
+    </footer>
+
+
+<script src="index.js"></script>
+
+   
 </body>
+
 </html>
