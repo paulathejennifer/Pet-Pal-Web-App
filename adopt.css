@@ -20,13 +20,14 @@
     .heading_main {
       font-size: 300%;
       transform: translate(20px, 50px);
+      font-family: jhm;
     }
     #pal_heading {
       color: orange;
     }
     #nav_bar {
       display: flex;
-      gap: 20px;
+      gap: 70px;
       justify-content: center;
       margin: 20px 0;
     }
@@ -107,7 +108,15 @@
             display: flex;
             gap: 30px;
             transform: translate(-180px, 70px);
+            margin-bottom: 200px;
             
+        }
+        #adopt{
+          transform: translate(790px, 10px);
+          color: orange;
+          font-size: 20px;
+          
+
         }
         .image_two  img{
 

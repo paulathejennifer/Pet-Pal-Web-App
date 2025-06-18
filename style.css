@@ -31,7 +31,9 @@
         .heading_main {
             font-size: 300%;
             transform: translate(20px, 50px);
+            font-family: jhm;
         }
+        
 
         #pal_heading {
             color: orange;
@@ -46,6 +48,9 @@
             border-radius: 10rem;
             background: orange;
             font-size: 100%;
+        }
+        #animals{
+            margin-bottom: 200px;
         }
 
         #heading {
@@ -121,7 +126,7 @@
 
         #nav_bar {
             display: flex;
-            gap: 20px;
+            gap: 60px;
             justify-content: center;
             margin: 20px 0;
         }
@@ -302,12 +307,12 @@ gap:-40px
 #reviews{
     color: rgb(255, 145, 0);
     margin-left: 45%;
+     margin-left: 40%;
+    font-size: 40px;
+    font-family: Dom;
+
 }
-#what-people-say{
-    margin-left: 43%;
-    font-size: 50px;
-    
-}
+
   
 
 
