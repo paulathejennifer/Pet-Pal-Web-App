@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PetPal - Animal Viewer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="favorites.html">Favorites <span id="fav-count"></span></a>
+  </nav>
+  <main>
+    <div class="pets-grid" id="animal-list"></div>
+  </main>
+
+
+  <div id="quickview-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <img id="modal-img" src="" alt="Animal" />
+      <h2 id="modal-name"></h2>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+  <section class="faq-section">
+  <h2>FAQs</h2>
+  <ul class="faq-list">
+    <li class="faq-item">
+      <span class="faq-question">How do I add a pet to favorites?</span>
+      <span class="faq-answer">Click the heart icon on the pet card to add it to your favorites list.</span>
+    </li>
+    <li class="faq-item">
+      <span class="faq-question">How do I adopt a pet?</span>
+      <span class="faq-answer">Click the "Adopt" button on the pet card and fill out the adoption form on the next page.</span>
+    </li>
+    <li class="faq-item">
+      <span class="faq-question">Can I remove a pet from favorites?</span>
+      <span class="faq-answer">Yes, simply click the red heart icon again to remove a pet from your favorites page.</span>
+    </li>
+    <li class="faq-item">
+      <span class="faq-question">What is Quick View?</span>
+      <span class="faq-answer">Quick View shows more information about a pet without leaving the page.</span>
+    </li>
+    <li class="faq-item">
+      <span class="faq-question">Where can I see my favorite pets?</span>
+      <span class="faq-answer">Click "Favorites" in the navigation bar to see all your favorited pets.</span>
+    </li>
+  </ul>
+</section>
+
+  <script src="animals.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

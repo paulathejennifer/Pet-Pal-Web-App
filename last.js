@@ -68,14 +68,5 @@ function showPet(pet, container) {
             </div>
         </div>
     `;
-    container.innerHTML += petHTML; 
+    container.innerHTML += petHTML; // Append each pet's HTML to the container
 }
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,229 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f75555;
+}
+
+nav {
+  background: #fff;
+  color: #f755a0;
+  padding: 1em;
+  display: flex;
+  gap: 1em;
+  font-size: 1.2em;
+  align-items: center;
+  box-shadow: 0 2px 8px #0001;
+}
+nav a {
+  color: #f755a0;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 10px;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2em 0;
+}
+
+.pets-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+.pet-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px #0001;
+  width: 350px;
+  text-align: center;
+  padding-bottom: 2rem;
+  position: relative;
+  transition: transform .15s;
+  margin-bottom: 2rem;
+}
+
+.pet-card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.pet-img-container {
+  position: relative;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.pet-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  background: #f9d6ee;
+}
+
+.fav-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 1px 4px #0004;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.fav-btn.favorited {
+  color: #e74c3c;
+  text-shadow: 0 2px 8px #c0392b44;
+}
+
+.pet-card h2 {
+  font-size: 2rem;
+  margin: 1.2rem 0 0.3rem 0;
+  font-weight: bold;
+}
+
+.pet-rating {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+  color: #ffca08;
+  letter-spacing: 0.08em;
+}
+
+.pet-price {
+  font-size: 2rem;
+  margin-bottom: 1.1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.pet-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+.adopt-btn, .quickview-btn {
+  background: #f755a0;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8em 1.5em;
+  font-size: 1.1em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.18s;
+  width: 47%;
+}
+
+.adopt-btn:hover, .quickview-btn:hover {
+  background: #d3389e;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background: #fff;
+  margin: 7% auto;
+  padding: 2em;
+  border-radius: 15px;
+  width: 340px;
+  text-align: center;
+  position: relative;
+}
+.modal img{
+  width: 100%;
+  height: 230px;
+}
+.close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.empty-message {
+  color: #fff;
+  background: #f755a0;
+  font-size: 1.5rem;
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  margin: 4rem auto;
+  text-align: center;
+  max-width: 500px;
+}
+.faq-section {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px #f755a027;
+  margin: 3rem auto 2rem auto;
+  max-width: 650px;
+  padding: 2rem;
+}
+
+.faq-section h2 {
+  color: #f755a0;
+  margin-bottom: 1.3rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faq-item {
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+.faq-question {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f755a0;
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.faq-question:hover {
+  background: #f9d6ee;
+}
+
+.faq-answer {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 120%;
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px #0002;
+  white-space: pre-line;
+  min-width: 220px;
+  max-width: 400px;
+  padding: 1rem 1.3rem;
+  z-index: 100;
+  font-size: 1rem;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.faq-item:hover .faq-answer,
+.faq-question:focus + .faq-answer {
+  display: block;
+}

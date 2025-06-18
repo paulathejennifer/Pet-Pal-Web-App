@@ -323,9 +323,127 @@ body{
     display: flex;
     gap:100px ;
     transform: translate(-80px, 100px);
+    margin-bottom: 200px;
   }
   
-  
+  .footer-content {
+    display: flex;
+    margin-left: 2cm;
+}
+
+#quick-links {
+    display: flex;
+    width: 30%;
+    height: 8cm;
+    box-shadow: 0 5px 15px rgba(214, 208, 208, 0.2);
+}
+
+#quick-links li {
+    margin-left: 2.5cm;
+    list-style: none;
+    line-height: 1cm;
+}
+
+#specific-socials {
+    display: flex;
+    gap: 1cm;
+    margin-left: 3.2cm;
+    margin-top: 1cm;
+}
+
+#specific-socials p {
+    border: 2px solid white; 
+    border-radius: 5px; 
+    padding: 10px; 
+    color: white; 
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 30px;
+}
+
+#terms {
+    text-align: center;
+}
+
+#socials {
+    width: 30%;
+    height: 8cm;
+    box-shadow: 0 5px 15px rgba(214, 208, 208, 0.2);
+}
+
+#socials h1 {
+    text-align: center;
+    margin-top: 2cm;
+}
+
+#socials h4 {
+    text-align: center;
+    font-size: 20px;
+}
+
+#contact-us {
+    width: 30%;
+    height: 8cm;
+    box-shadow: 0 5px 15px rgba(214, 208, 208, 0.2);
+}
+
+#contact-us p {
+    margin-left: 5cm;
+}
+
+#pal_heading {
+    color: orange;
+}
+
+
+
+.personal-review{
+box-shadow: 1px 0 4px;
+width:30%;
+margin-left: 3%;
+p{
+    margin-left: 30px;
+}
+
+}
+.review{
+    display: flex;
+    margin-bottom: 200px;
+   
+    img{
+        width:70px;
+        margin-top: 10px;
+
+    }
+}
+#quote{color:rgb(218, 42, 42);
+font-size: 30px;
+margin-top: 49px;
+margin-left: 32%;
+}
+#name{
+    margin-left: 20%;
+
+}
+
+
+.alignment{
+display: flex;
+margin-left: 20px;
+gap:-40px
+}
+#our-review{
+    color: rgb(255, 145, 0);
+    margin-left: 45%;
+}
+#what-people-say{
+    margin-left: 43%;
+    font-size: 50px;
+    
+}
   
 
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Adopt a Pet - PetPal</title>
+  <link rel="stylesheet" href="adopt.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="favorites.html">Favorites</a>
+  </nav>
+  <main>
+    <h1>Adopt a Pet</h1>
+    <div id="adopt-pet-info"></div>
+    <form id="adopt-form">
+      <fieldset>
+        <legend>Applicant Information</legend>
+        <label>Name: <input type="text" name="name" required></label><br>
+        <label>Email: <input type="email" name="email" required></label>
+      </fieldset>
+      <fieldset>
+        <legend>Lifestyle</legend>
+        <label>Do you have other pets? <input type="text" name="otherPets"></label><br>
+        <label>Describe your home: <input type="text" name="homeDesc"></label>
+      </fieldset>
+      <fieldset>
+        <legend>Experience</legend>
+        <label>Have you owned pets before? <input type="text" name="experience"></label>
+      </fieldset>
+      <button type="submit">Submit Adoption</button>
+    </form>
+    <audio id="yay-sound" src="yaay.mp3" preload="auto"></audio>
+    <div id="adopt-success" class="hidden">
+      <h2>Congratulations!</h2>
+      <p>You have adopted <span id="adopted-pet-name"></span>!</p>
+    </div>
+  </main>
+  <script src="animals.js"></script>
+  <script src="adopt.js"></script>
+</body>
+</html>
