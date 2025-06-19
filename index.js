@@ -69,4 +69,45 @@
 
             });
         }
+
+         
+       ``
+
+        const funNames = [
+            "Fluffy McSnuggles",
+            "Bonnette",
+            "Sir Waggington",
+            "Ruby",
+            "Purrlock Holmes",
+            "Dotty",
+            "Bark Twain",
+            "Makuto",
+            "Furrball McFluff",
+            "Davida",
+            "Whisker Biscuit",
+            "Angie",
+            "Captain Sniffles",
+            "Pawtastic",
+            "Mwiks",
+            "Cuddle Monster",
+            "Fuzzy Wuzzy",
+            "Bubbles",
+            "Shadow",
+            "Fluffy",
+            "Nibbles", 
+            "Taco", 
+            "Momo", 
+            "Spike"
+        ];
+
+        function generateFunName() {
+            const randomIndex = Math.floor(Math.random() * funNames.length);
+            const funName = funNames[randomIndex];
+            const funNameDisplay = document.getElementById("funNameDisplay");
+            funNameDisplay.innerText = `Fun Name: ${funName}`;
+            funNameDisplay.style.display = "block"; 
+                        setTimeout(() => {
+                funNameDisplay.style.display = "none"; 
+            }, 5000);         }
+
     

@@ -66,7 +66,7 @@
         .card {
             position: relative;
             width: 300px;
-            height: 400px;
+            height: 600px;
             perspective: 1000px;
             margin: 10px;
         }
@@ -120,8 +120,8 @@
         }
         /* Button Styles */
         button {
-            padding: 7px 15px; /* Add padding for a better look */
-            font-size: 13px; /* Font size */
+            padding: 7px 15px; 
+            font-size: 13px; 
             color: white; /* Text color */
             background-color: orange; /* Background color */
             border: none; /* Remove default border */
@@ -130,9 +130,7 @@
             transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
         }
         button:hover {
-            background-color: rgb(14, 13, 13); /* Change background color on hover */
-            /* transform: scale(1.05); Slightly enlarge the button on hover */
-        }
+            background-color: rgb(14, 13, 13);         }
     </style>
 </head>
 <body>
@@ -143,8 +141,7 @@
         <a href="index.html">Home</a>
         <a href="#">Pets</a>
         <a href="#">Adopt</a>
-        <a href="#">Wishlist</a>
-        <a href="#">Stories</a>
+        
     </nav>
     <div class="search-bar">
         <select id="speciesSelect">
@@ -160,13 +157,11 @@
         </select>
         <button onclick="searchPets()">Search</button>
     </div>
-    <div id="funNameDisplay"></div> <!-- Display the generated fun name here -->
+    <div id="funNameDisplay"></div> 
     <div class="container" id="pet-card">
-        <!-- Pet cards will be appended here -->
-    </div>
+            </div>
     
-    <!-- <button id="generateNameBtn" onclick="generateFunName()">Generate Fun Name</button> -->
-
+   
     <footer>
         <div class="footer-content">
             <div>
